@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Te enviaré un SMS</p>
+  <mat-form-field>
+    <mat-label>Número teléfonico</mat-label>
+    <input matInput [mask]="telefono" cdkFocusInitial prefix="+52 " [(ngModel)]="recuperar.Telefono">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="Cancelar()">Cancelar</button>
+    <button mat-button color="primary" (click)="Solicitar()">Enviar</button>
+</div>

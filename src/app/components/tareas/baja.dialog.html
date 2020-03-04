@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+  <p>Confirmar eliminación</p>
+  <mat-form-field class="ancho">
+    <mat-label>Título</mat-label>
+    <input matInput disabled [(ngModel)]="tarea.Titulo">
+  </mat-form-field>
+  <mat-form-field class="ancho">
+    <mat-label>Categoría</mat-label>
+    <input matInput disabled [(ngModel)]="tarea.Categoria">
+  </mat-form-field>
+  <mat-form-field class="ancho">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput disabled [(ngModel)]="tarea.Descripcion"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="Cancelar()">Cancelar</button>
+    <button mat-button color="danger" (click)="Baja()" cdkFocusInitial>Eliminar</button>
+</div>

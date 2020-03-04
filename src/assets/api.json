@@ -1,0 +1,34 @@
+{
+    "--- DOC: Parámetros Servidor ---": true,
+    "Servidor": {
+        "Anfitrion": "192.168.0.5",
+        "Protocolo": "http",
+        "SSL": true,
+        "Puerto": 443,
+        "Version": 1
+    },
+    "--- DOC: Módulo Seguridad ---": true,
+    "Seguridad": {
+        "Acceder": "Función para crear una sesión.",
+        "Registro": "Función para crear un usuario.",
+        "Sesion": "Función para obtener una sesión iniciada.",
+        "Recuperar": "Función para enviar un código de recuperación.",
+        "Actualizar": "Función para actualizar datos de una cuenta.",
+        "Activacion": {
+            "--- DOC: Activación de cuenta ---": true,
+            "@Telefono": "Número de teléfono.",
+            "@Clave": "La nueva clave.",
+            "@Confirmar": "La confirmación de clave.",
+            "@Codigo": "El código SMS recibido al registrarse."
+        },
+        "Salir": "Cierra l asesión activa"
+    },
+    "--- DOC: Módulo Tareas ---": true,
+    "Tareas": {
+        "Alta": "/Tareas/Alta",
+        "Baja": "/Tareas/Baja",
+        "Consulta": "/Tareas/Consulta",
+        "Detalle": "/Tareas/Detalle",
+        "Edicion": "/Tareas/Edicion"
+    }
+}

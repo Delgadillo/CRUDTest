@@ -1,0 +1,26 @@
+.acceder-container {
+    width: 100%;
+    opacity: .95;
+    height: 100%;
+}
+  
+.acceder-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.acceder-sidenav {
+    padding: 20px;
+}
+
+.acceder-form, .registrar-form {
+    min-width:100%;
+    max-width:300px;
+    width:100%;
+}
+
+.ancho, .btn-block{
+    width:100%;
+}

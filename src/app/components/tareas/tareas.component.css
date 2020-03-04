@@ -1,0 +1,69 @@
+.espacio { 
+  flex: 1 1 auto
+}
+
+button, .buscar {
+  margin: 16px 8px
+}
+
+.tareas-container {
+  width: 100%;
+  opacity: .97;
+  height: 100%;
+}
+  
+.tareas-sidenav-content {
+    /*display: flex;*/
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+  
+.tareas-sidenav {
+  padding: 20px;
+}
+
+.tareas-form, .preferencias-form {
+  min-width:100%;
+  max-width:300px;
+  width:100%;
+}
+
+.ancho, .btn-block{
+  width: 100%;
+}
+  
+tr.detalle-fila {
+  height: 0;
+}
+  
+tr.tarea-fila:not(.fila-expandida):hover {
+  background: lightblue;
+}
+
+tr.tarea-fila:not(.fila-expandida):active {
+  background: lightgreen;
+}
+
+.tarea-fila td {
+  border-bottom-width: 0;
+}
+
+.fila-detalle {
+  overflow: hidden;
+  display: flex;
+}
+
+.fila-atributos {
+  min-width: 80px;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.fila-campo {
+  font-size: 10px;
+  line-height: normal;
+  padding: 5px;
+}  

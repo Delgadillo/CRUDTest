@@ -1,0 +1,69 @@
+<mat-drawer-container class="tareas-container" hasBackdrop="true" autosize>
+  <mat-drawer (ngModel)="preferencias" #preferencias (keydown.escape)="preferencias.toggle()" class="tareas-sidenav" mode="side">
+    <p>Preferencias</p>
+    <mat-card>
+      <form class="preferencias-form">
+        <marquee>Tarea: Poner aqui las preferencias de usuario</marquee>
+      </form>
+    </mat-card>
+  </mat-drawer>
+  <div class="tareas-sidenav-content">
+    <mat-toolbar color="primary">
+      <small>Hola{{ sesion ? ' ' + sesion.Titular : '' }}</small>
+      <span class="espacio"></span>
+      <button mat-raised-button (click)="preferencias.open()">Preferencias</button>
+      <button mat-raised-button color="warn" (click)="Salir()">Salir</button>
+    </mat-toolbar>
+    <table mat-table [dataSource]="tareas" multiTemplateDataRows class="ancho mat-elevation-z8">
+      <ng-container matColumnDef="{{columna}}" *ngFor="let columna of columnas">
+        <th mat-header-cell *matHeaderCellDef [ngSwitch]="columna">
+          <mat-form-field *ngSwitchCase="'Titulo'" class="buscar">
+            <mat-label>Filtrar tareas</mat-label>
+            <input matInput (keyup)="Filtrar($event)" placeholder="e.g.: Desarrollo">
+          </mat-form-field>
+          <button *ngSwitchCase="'Operación'" mat-raised-button (click)="AgregarTarea()">Agregar tarea</button>
+          <span *ngSwitchCase="'Categoria'">
+            Categoría
+          </span>
+          <span *ngSwitchCase="'Descripcion'">
+            Descripción
+          </span>
+          <span *ngSwitchDefault>
+            {{columna}}
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let fila" [ngSwitch]="columna">
+          <span *ngSwitchCase="'Operación'">
+            <button mat-raised-button color="accent" (click)="EditarTarea($event, fila)">Editar</button>
+            <button mat-raised-button color="warn" (click)="EliminarTarea($event, fila)">Eliminar</button>
+          </span>
+          <span *ngSwitchDefault>{{fila[columna]}}</span>
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="filaDetalle">
+      <td mat-cell *matCellDef="let fila" [attr.colspan]="columnas.length">
+        <div class="fila-detalle" [@detailExpand]="fila == filaExpandida ? 'expanded' : 'collapsed'">
+          <div class="fila-atributos">
+            <div class="fila-campo">Creada</div>
+            <div>{{fila.CR | date: 'd/M/y H:m:s' }}</div>
+            <div class="fila-campo">Modificada</div>
+            <div>{{fila.UM | date: 'd/M/y H:m:ss' }}</div>
+          </div>
+          <div class="fila-atributos">
+            <div class="fila-campo">Descripción</div>
+            <div>{{fila.Descripcion}}</div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnas; sticky: true"></tr>
+    <tr mat-row *matRowDef="let fila; columns: columnas;"
+        class="tarea-fila"
+        [class.fila-expandida]="filaExpandida === fila"
+        (click)="filaExpandida = filaExpandida === fila ? null : fila">
+    </tr>
+    <tr mat-row *matRowDef="let fila; columns: ['filaDetalle']" class="detalle-fila"></tr>
+  </table>
+  </div>  
+</mat-drawer-container>

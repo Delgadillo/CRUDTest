@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+  <p>Agregar tarea</p>
+  <mat-form-field class="ancho">
+    <mat-label>Título</mat-label>
+    <input matInput [(ngModel)]="tarea.Titulo" cdkFocusInitial>
+  </mat-form-field>
+  <mat-form-field class="ancho">
+    <mat-label>Categoría</mat-label>
+    <mat-select [(value)]="tarea.Categoria" name="Categoria" [(ngModel)]="tarea.Categoria">
+      <mat-option value="Análisis">Análisis</mat-option>
+      <mat-option value="Desarrollo">Desarrollo</mat-option>
+      <mat-option value="Programación">Programación</mat-option>
+      <mat-option value="Diseño">Diseño</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="ancho">
+    <mat-label>Descripción de tarea</mat-label>
+    <textarea matInput [(ngModel)]="tarea.Descripcion"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="warn" (click)="Cancelar()">Cancelar</button>
+    <span style="flex: 1 1 auto;"></span>
+    <button mat-button color="success" (click)="Alta()">Guardar</button>
+</div>
